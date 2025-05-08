@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Nouvel Onglet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1e1e1e;
+      color: white;
+      text-align: center;
+      padding-top: 10%;
+    }
+    input[type="text"] {
+      width: 50%;
+      padding: 10px;
+      font-size: 18px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: none;
+    }
+    .shortcuts {
+      margin-top: 40px;
+    }
+    .shortcut {
+      margin: 0 10px;
+      color: #00bfff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bienvenue Félix 👋</h1>
+
+  <!-- Recherche Google -->
+  <form action="https://www.google.com/search" method="GET" target="_blank">
+    <input type="text" name="q" placeholder="Recherche Google...">
+  </form>
+
+  <!-- Recherche ChatGPT via URL redirection (non-officiel) -->
+  <form onsubmit="openChatGPT(event)">
+    <input type="text" id="chatgpt-query" placeholder="Demander à ChatGPT...">
+  </form>
+
+  <script>
+    function openChatGPT(event) {
+      event.preventDefault();
+      const query = document.getElementById('chatgpt-query').value;
+      if (query.trim()) {
+        const url = `https://chat.openai.com/?q=${encodeURIComponent(query)}`;
+        window.open(url, '_blank');
+      }
+    }
+  </script>
+
+  <!-- Raccourcis -->
+  <div class="shortcuts">
+    <a class="shortcut" href="https://mail.google.com" target="_blank">Gmail</a>
+    <a class="shortcut" href="https://chat.openai.com" target="_blank">ChatGPT</a>
+    <a class="shortcut" href="https://www.youtube.com" target="_blank">YouTube</a>
+    <a class="shortcut" href="https://github.com" target="_blank">GitHub</a>
+  </div>
+</body>
+</html>
